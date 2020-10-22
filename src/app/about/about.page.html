@@ -1,0 +1,77 @@
+<style>
+  h2 ::ng-deep {
+  color: darkblue;
+}
+
+h3 ::ng-deep {
+  color: rosybrown;
+}
+
+h4 ::ng-deep {
+  color: #616e7e;
+}
+
+h5 ::ng-deep {
+  color: burlywood;
+}
+
+a ::ng-deep {
+  color: red;
+}
+</style>
+
+<ion-header [translucent]="true">
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+      <ion-menu-button color="light"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>About Techeconomy.in</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light" [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">About</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-card color="primary" class="ion-text-center">
+    <ion-card-header>
+      <ion-card-title>About Techeconomy.in Blog</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>
+        Techeconomy.in is a blog focused on showing how Technology and Economy go hand in hand with each other. We are to share about Economic impacts of Technology, how tech helping economy, gadgets and more.
+        This app will allow you to get our posts to read directly in your phone
+      </p>
+    </ion-card-content>
+  </ion-card>
+  <br />
+  <ion-card color="tertiary" class="ion-text-center">
+    <ion-card-header>
+      <ion-card-title>Contact</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>
+        For contacting us you can mail us at <b>Blogtecheconomy@gmail.com</b>
+      </p>
+    </ion-card-content>
+  </ion-card>
+  <br />
+  <ion-card color="tertiary" class="ion-text-center" *ngIf="deviceDetail && deviceDetail.platform">
+    <ion-card-header>
+      <ion-card-title>Device Detail</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>
+        <b>Android Version</b> : {{deviceDetail.version}}
+        <br />
+        <b>Platform</b> : {{deviceDetail.platform}}
+        <br />
+        <b>Model</b> : {{deviceDetail.model}}
+        <br />
+        <b>Manufacturer</b> : {{deviceDetail.manufacturer}}
+      </p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,53 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="tertiary">
+    <ion-buttons color="light" slot="start">
+      <ion-menu-button color="light"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Home</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light" [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Home</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-grid>
+    <ion-row>
+      <!-- routerLink="['/detail/' + {{post.id}}]" -->
+      <!-- (click)="goToDetailPage(post.id)" -->
+      <ion-col *ngFor="let post of posts$ | async" size="12" size-sm>
+        <ion-card (click)="goToDetailPage(post.id)">
+          <ion-img [src]="post.featured_image_urls.full[0]"></ion-img>
+          <ion-card-header>
+            <ion-card-title class="ion-text-center">
+              <span [innerHTML]="post.title.rendered"></span>
+            </ion-card-title>
+            <ion-card-subtitle>
+              <ion-row class="ion-text-center">
+                <ion-col size="3" class="ion-text-right">
+                  <ion-thumbnail>
+                    <ion-img [src]="post.authors[0].avatar_urls[48]"></ion-img>
+                  </ion-thumbnail>
+                </ion-col>
+                <ion-col>
+                  <span [innerHTML]="post.author_name.toUpperCase()"></span>
+                  <br />
+                  <span timeago [date]="post.date" [live]="'true'"></span>
+                </ion-col>
+              </ion-row>
+            </ion-card-subtitle>
+            <ion-item-divider></ion-item-divider>
+            <ion-card-content class="ion-text-center">
+              <span [innerHtml]="post.excerpt.rendered"></span>
+            </ion-card-content>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <p class="ion-text-center">*----*-----*----*</p>
+</ion-content>

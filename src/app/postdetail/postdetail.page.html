@@ -1,0 +1,77 @@
+<style>
+  h2 ::ng-deep {
+  color: darkblue;
+}
+
+h3 ::ng-deep {
+  color: rosybrown;
+}
+
+h4 ::ng-deep {
+  color: #616e7e;
+}
+
+h5 ::ng-deep {
+  color: burlywood;
+}
+
+a ::ng-deep {
+  color: red;
+}
+</style>
+
+<ion-header [translucent]="true">
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" color='light'></ion-back-button>
+      <!-- <ion-back-button color="light" routerLink=''></ion-back-button> -->
+      <!-- <ion-menu-button></ion-menu-button> -->
+    </ion-buttons>
+    <!-- <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons> -->
+    <ion-title>{{ post && post.id ? post.title.rendered : 'Detail' }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light" [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <!-- <ion-title size="large">{{ folder }}</ion-title> -->
+    </ion-toolbar>
+  </ion-header>
+
+  <ng-container *ngIf="post && post.id">
+    <ion-card>
+      <ion-img [src]="post.featured_image_urls.full[0]"></ion-img>
+      <ion-card-header>
+        <ion-card-title class="ion-text-center">
+          <h2 [innerHTML]="post.title.rendered"></h2>
+        </ion-card-title>
+        <ion-card-subtitle>
+          <div class="ion-text-center">
+            By <span class="ion-text-center" [innerHTML]="post.author_info.name.toUpperCase()"></span>
+            <br />
+            <span [innerHTML]="post.category_list"></span>
+            <br />
+            <span timeago [date]="post.date" [live]="'true'"></span>
+          </div>
+        </ion-card-subtitle>
+      </ion-card-header>
+      <!-- <br /> -->
+      <ion-item-divider></ion-item-divider>
+      <ion-card-content>
+        <ion-row>
+          <ion-col>
+            <!-- {{}} -->
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <div [innerHTML]="post.content.rendered"></div>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </ng-container>
+</ion-content>

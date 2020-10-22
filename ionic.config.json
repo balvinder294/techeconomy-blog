@@ -1,0 +1,7 @@
+{
+  "name": "techeconomy.in",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

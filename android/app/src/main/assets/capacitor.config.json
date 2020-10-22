@@ -1,0 +1,13 @@
+{
+  "appId": "in.techeconomy.blog",
+  "appName": "blog.techeconomy.in",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "cordova": {}
+}
