@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PostdetailModule } from './postdetail/postdetail.module';
 import { TimeagoModule } from 'ngx-timeago';
 import { FolderPageModule } from './folder/folder.module';
+import { GoogleAnalytics } from '@ionic-native/google-analytics/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,6 +29,7 @@ import { FolderPageModule } from './folder/folder.module';
   providers: [
     StatusBar,
     SplashScreen,
+    GoogleAnalytics,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

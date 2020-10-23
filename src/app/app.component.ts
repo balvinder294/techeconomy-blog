@@ -5,6 +5,8 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Router } from '@angular/router';
 
+import { GoogleAnalytics } from '@ionic-native/google-analytics/ngx';
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -52,7 +54,8 @@ export class AppComponent implements OnInit {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private router: Router
+    private router: Router,
+    private analytics: GoogleAnalytics
   ) {
     this.initializeApp();
   }
@@ -61,6 +64,11 @@ export class AppComponent implements OnInit {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+      this.analytics.startTrackerWithId('250118123')
+        .then(() => {
+          this.analytics.trackView('Home Page');
+        })
+        .catch(e => console.error('Error Starting Google Analytics' + e));
     });
   }
 
@@ -71,11 +79,15 @@ export class AppComponent implements OnInit {
     }
   }
 
-  navigatePage(name) {
+  navigatePage(name: string): void {
     if (name === 'home') {
       this.router.navigate(['']);
     } else if (name === 'about') {
       this.router.navigate(['about']);
+    } else if (name === 'currency-exchange') {
+      this.router.navigate(['currency-exchange']);
+    } else if (name === 'currency-converter') {
+      this.router.navigate(['currency-convert']);
     }
   }
 }

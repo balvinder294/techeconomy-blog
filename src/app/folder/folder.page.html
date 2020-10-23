@@ -19,7 +19,7 @@
       <!-- routerLink="['/detail/' + {{post.id}}]" -->
       <!-- (click)="goToDetailPage(post.id)" -->
       <ion-col *ngFor="let post of posts$ | async" size="12" size-sm>
-        <ion-card (click)="goToDetailPage(post.id)">
+        <ion-card (click)="goToDetailPage(post.id, post.title.rendered)">
           <ion-img [src]="post.featured_image_urls.full[0]"></ion-img>
           <ion-card-header>
             <ion-card-title class="ion-text-center">

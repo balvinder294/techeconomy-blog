@@ -1,0 +1,51 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+      <ion-menu-button color="light"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Currency Exchange Rates</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-text-center" color="light">
+  <ion-card color="tertiary">
+    <ion-card-header>
+      <ion-card-title>Currency Exchange Rates</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <h3>Base Currency = {{baseCurrency}}</h3>
+      <h4 *ngIf="exchangeRatesList">Date {{exchangeRatesList.date}}</h4>
+    </ion-card-content>
+  </ion-card>
+  <ion-card color="primary">
+    <ion-card-header>
+        <ion-card-title>Change Base Currency</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item color="tertiary">
+        <ion-label>Select Currency</ion-label>
+        <ion-select color="secondary" (ionChange)="changeCurrency()" [(ngModel)]="baseCurrency" name="field_amountToConvert">
+          <ion-select-option *ngFor="let currency of currencies;" [value]="currency.short">{{currency.name}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+  <ng-container *ngIf="exchangeRatesList">
+    <ion-card color="primary">
+      <ion-card-header>
+        <ion-card-title>
+          List of All Currencies
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-grid padding>
+          <ion-row *ngFor="let rate of exchangeRatesList.rates | keyvalue">
+            <ion-col>
+              <ion-item class="ion-text-center" color="tertiary">1 {{rate.key}} = {{ rate.value }} {{baseCurrency}}</ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+  </ng-container>
+</ion-content>

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "719385046434",
+    "firebase_url": "https://techeconomy-blog-mobile-app.firebaseio.com",
+    "project_id": "techeconomy-blog-mobile-app",
+    "storage_bucket": "techeconomy-blog-mobile-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:719385046434:android:9f20317f691e33194256fb",
+        "android_client_info": {
+          "package_name": "in.techeconomy.blog"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "719385046434-ksv22j7jjd2pk5s4au95hr4k9u5162jh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjVz8rvdBpGM97KYSHaIdfT7ybldiYu0k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "719385046434-ksv22j7jjd2pk5s4au95hr4k9u5162jh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

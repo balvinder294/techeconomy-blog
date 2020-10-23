@@ -6,6 +6,7 @@ import { NgWpRestApiModule, PostsService } from 'ng-wp-rest-api';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { TimeagoModule } from 'ngx-timeago';
+import { GoogleAnalytics } from '@ionic-native/google-analytics/ngx';
 
 @NgModule({
   declarations: [PostDetailPage],
@@ -19,7 +20,8 @@ import { TimeagoModule } from 'ngx-timeago';
   ],
   providers: [
     {provide: 'wpApiBaseUrl', useValue: 'https://techeconomy.in/wp-json'},
-    PostsService
+    PostsService,
+    GoogleAnalytics
   ]
 })
 export class PostdetailModule { }

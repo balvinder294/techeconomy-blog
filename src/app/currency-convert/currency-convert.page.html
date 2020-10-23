@@ -1,0 +1,63 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+      <ion-menu-button color="light"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Convert Currency</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light" class="ion-text-center">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-item color="primary">
+          <ion-label>From Currency</ion-label>
+          <ion-select color="secondary" [(ngModel)]="fromCurrency" name="field_amountToConvert">
+            <ion-select-option *ngFor="let currency of currencies;" [value]="currency.short">{{currency.name}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item color="primary">
+          <ion-label>To Currency</ion-label>
+          <ion-select color="secondary" [(ngModel)]="toCurrency" name="field_amountToConvert">
+            <ion-select-option *ngFor="let currency of currencies;" [value]="currency.short">{{currency.name}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item color="primary">
+          <ion-label>Amount</ion-label>
+          <ion-input type="number" name="field_currencyAmount" placeholder="Enter Amount"
+            [(ngModel)]="currencyAmount"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="showConversion()" color="tertiary" 
+          [disabled]="!toCurrency || !fromCurrency || !currencyAmount"
+          expand="full">Convert</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ng-container *ngIf="showConvert">
+    <ion-card color="tertiary" class="ion-text-center">
+      <ion-card-header>
+        <ion-card-title>
+          Conversion Result
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>
+          <b>{{currencyAmount}} {{fromCurrency}}</b> = {{convertedValue}} <b>{{toCurrency}}</b>
+        </p>
+      </ion-card-content>
+    </ion-card>
+  </ng-container>
+</ion-content>

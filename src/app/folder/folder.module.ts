@@ -10,6 +10,7 @@ import { FolderPage } from './folder.page';
 
 import { NgWpRestApiModule, PostsService } from 'ng-wp-rest-api';
 import { TimeagoModule } from 'ngx-timeago';
+import { GoogleAnalytics } from '@ionic-native/google-analytics/ngx';
 
 @NgModule({
   imports: [
@@ -23,7 +24,8 @@ import { TimeagoModule } from 'ngx-timeago';
   declarations: [FolderPage],
   providers: [
     {provide: 'wpApiBaseUrl', useValue: 'https://techeconomy.in/wp-json'},
-    PostsService
+    PostsService,
+    GoogleAnalytics
   ]
 })
 export class FolderPageModule {}
